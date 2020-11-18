@@ -1,24 +1,33 @@
-var parola = prompt("Inserisci una parola!");
 
-function palindroma(text) {
-  var parolaReverse = parola.split("").reverse().join("");
-  var palindromaElement = document.getElementById("palindromaElement");
-  var messaggio = "";
+function palindroma() {
 
-  if (parola == parolaReverse) {
-    messaggio = "La parola è palindroma!";
-    palindromaElement.style.color = "green";
-  } else {
-    messaggio = "La parola non è palindroma!";
-    palindromaElement.style.color = "red";
+  for (var y = 0; y < 1; y++) {
+    var parola = prompt("Inserisci una parola!");
+
+    if (!(parola == "")) {
+      var parolaReverse = parola.split("").reverse().join("");
+      var palindromaElement = document.getElementById("palindromaElement");
+      var messaggio = "";
+
+      if (parola == parolaReverse) {
+        messaggio = "La parola è palindroma!";
+        palindromaElement.style.color = "green";
+      } else {
+        messaggio = "La parola non è palindroma!";
+        palindromaElement.style.color = "red";
+      }
+
+      palindromaElement.innerHTML = messaggio;
+    } else {
+      alert("La parola inserita non è valida riprova!");
+      y--;
+    }
   }
-
-  palindromaElement.innerHTML = messaggio;
 
   return null;
 }
 
-var palindromaVar = palindroma(parola);
+var palindromaVar = palindroma();
 
 // pari o dispari
 
