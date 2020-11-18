@@ -47,7 +47,13 @@ function pariODispari() {
           var numberPC = Math.floor(Math.random() * 5) + 1;
           var number = numberPC + numberUser;
           var isPar = false;
+
+          var chooseElement = document.getElementById("scelta");
+          var numberUserElement = document.getElementById("numeroUser");
+          var numberPcElement = document.getElementById("numeroPc");
+          var sommaElement = document.getElementById("somma");
           var numberElement = document.getElementById("numberElement");
+
           var messaggio = "";
 
           if (number %2 == 0) {
@@ -58,10 +64,16 @@ function pariODispari() {
 
           if (userChoose == "pari" && isPar == true || userChoose == "dispari" && isPar == false ) {
             messaggio = "Hai vinto!"
+            numberElement.style.color = "green";
           } else {
-            messaggio = "Hai perso";
+            messaggio = "Hai perso!";
+            numberElement.style.color = "red";
           }
 
+          chooseElement.innerHTML = "Scelta: " + choose;
+          numberUserElement.innerHTML = "Numero utente: " + numberUser;
+          numberPcElement.innerHTML = "Numero pc: " + numberPC;
+          sommaElement.innerHTML = "Somma: " + number;
           numberElement.innerHTML = messaggio;
         } else {
           alert("Il numero inserito non è valido riprova!");
