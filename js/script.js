@@ -22,42 +22,51 @@ var palindromaVar = palindroma(parola);
 
 // pari o dispari
 
-var choose = prompt("Scegli tra pari o dispari!");
+function pariODispari() {
 
-function pariODispari(parola) {
+  for (var i = 0; i < 1; i++) {
 
-  for (i = 0; i < 1; i++) {
+    var choose = prompt("Scegli tra pari o dispari!");
+    var userChoose = choose.toLowerCase();
 
-    var numberUser = parseInt(prompt("Inserisci un numero da 1 a 5"));
+    if (userChoose == "pari" || userChoose == "dispari") {
 
-    if (!(isNaN(numberUser)) && numberUser >= 1 && numberUser <= 5) {
-      var numberPC = Math.floor(Math.random() * 5) + 1;
-      var number = numberPC + numberUser;
-      var isPar = false;
-      var numberElement = document.getElementById("numberElement");
-      var userChoose = parola.toLowerCase();
-      var messaggio = "";
+      for (var z = 0; z < 1; z++) {
+        var numberUser = parseInt(prompt("Inserisci un numero da 1 a 5"));
 
-      if (number %2 == 0) {
-        isPar = true;
-      } else {
-        isPar = false;
+        if (!(isNaN(numberUser)) && numberUser >= 1 && numberUser <= 5) {
+          var numberPC = Math.floor(Math.random() * 5) + 1;
+          var number = numberPC + numberUser;
+          var isPar = false;
+          var numberElement = document.getElementById("numberElement");
+          var messaggio = "";
+
+          if (number %2 == 0) {
+            isPar = true;
+          } else {
+            isPar = false;
+          }
+
+          if (userChoose == "pari" && isPar == true || userChoose == "dispari" && isPar == false ) {
+            messaggio = "Hai vinto!"
+          } else {
+            messaggio = "Hai perso";
+          }
+
+          numberElement.innerHTML = messaggio;
+        } else {
+          alert("Il numero inserito non è valido riprova!");
+          z--;
+        }
       }
-
-      if (userChoose == "pari" && isPar == true || userChoose == "dispari" && isPar == false ) {
-        messaggio = "Hai vinto!"
-      } else {
-        messaggio = "Hai perso";
-      }
-
-      numberElement.innerHTML = messaggio;
     } else {
-      alert("Il numero inserito non è valido riprova!");
+      alert("Il valore inserito non è valido riprova!");
       i--;
     }
+
   }
 
   return null;
 }
 
-var pariODispariVar = pariODispari(choose);
+var pariODispariVar = pariODispari();
